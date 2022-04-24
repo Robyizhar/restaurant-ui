@@ -1,13 +1,15 @@
-import * as React from 'react'; 
+import * as React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { LayoutOne, Card, Text, Button } from 'upkit';
 
 export default function RegisterSuccess(){
+    let auth = useSelector(state => state.auth);
     return (
         <LayoutOne size="small">
             <Card color="white">
                 <Text as="h3"> Pendaftaran Berhasil </Text>
-                <Text> Silahkan masuk ke home </Text>
+                <Text> Silahkan masuk ke home {auth?.user?.full_name} </Text>
                 <br/>
                 <Link to="/login">
                     <Button fitContainer> Masuk </Button>
